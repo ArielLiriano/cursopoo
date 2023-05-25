@@ -4,14 +4,20 @@
 
     $objProducto = new Tienda();
 
-    $objProducto->setProducto("Monitor Asus", 150.99, 5);
+    $strProducto = "Teclado";
+    $fltPrecio = 110;
+    $intStock = 15;
+
+    $intCantidadVendida = 3;
+
+    $objProducto->setProducto($strProducto, $fltPrecio, $intStock);
 
     echo $objProducto->getProducto();
 
     echo "<br><br>";
 
-    $objProducto->setCarrito("Monitor",2);
-    $objProducto->setStock(2);
+    $objProducto->setCarrito($strProducto,$intCantidadVendida);
+    $objProducto->setStock($intCantidadVendida);
 
     echo $objProducto->getProducto();
 
