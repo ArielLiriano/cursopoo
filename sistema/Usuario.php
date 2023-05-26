@@ -51,7 +51,21 @@
 
         public function getUser(int $id)
         {
-            
+            $sql = "SELECT * FROM usuario WHERE id = ?";
+            $arrayWhere = array($id);
+            $query = $this->conexion->prepare($sql);
+            $query->execute($arrayWhere);
+            $request = $query->fetch(PDO::FETCH_ASSOC);
+            return $request;
+        }
+
+        public function delUser(int $id)
+        {
+            $sql = "DELETE FROM usuario WHERE id = ?";
+            $arrayWhere = array($id);
+            $delete = $this->conexion->prepare($sql);
+            $del = $delete->execute($arrayWhere);
+            return $del;
         }
     }
 ?>
